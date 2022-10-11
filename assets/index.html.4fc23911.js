@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-744c5e39","path":"/rsp/","title":"\u5E7B\u706F\u7247\u6F14\u793A","lang":"en-US","frontmatter":{"title":"\u5E7B\u706F\u7247\u6F14\u793A","icon":"discover","layout":"Slide","theme":"black"},"excerpt":"","headers":[],"git":{},"readingTime":{"minutes":1.33,"words":398},"filePathRelative":"rsp/README.md"}');export{e as data};

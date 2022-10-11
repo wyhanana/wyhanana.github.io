@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-027746c7","path":"/system/","title":"\u7CFB\u7EDF\u4ECB\u7ECD","lang":"en-US","frontmatter":{"title":"\u7CFB\u7EDF\u4ECB\u7ECD","index":false,"icon":"creative","category":["\u7CFB\u7EDF\u4ECB\u7ECD"]},"excerpt":"","headers":[],"git":{},"readingTime":{"minutes":0.63,"words":188},"filePathRelative":"system/README.md"}');export{e as data};
