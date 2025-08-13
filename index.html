@@ -1,229 +1,40 @@
-
 <!DOCTYPE html>
-<html lang="">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <title>研修网-证书查询</title>
-        <script src="https://px.yanxiu.com/2020/js/jquery-3.4.1.min.js"></script>
-        <script src="https://px.yanxiu.com/2020/js/template-web.js"></script>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: #f5f5f5;
-            }
+<html lang="en-US" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-beta.51" />
+    <meta name="theme" content="VuePress Theme Hope" />
+    <title></title><meta name="description" content="">
+    <style>
+      :root {
+        --bg-color: #fff;
+      }
 
-            .main-warp {
-                max-width: 1180px;
-                margin: 0 auto;
-            }
+      html[data-theme="dark"] {
+        --bg-color: #1d2025;
+      }
 
-            .header-nav-wrap {
-                height: 50px;
-                line-height: 50px;
-                background: #204ADC;
-            } 
+      html,
+      body {
+        background-color: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-            .header-nav-wrap .con {
-                margin: 0 auto;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                padding-left: 10px;
-            }
-
-
-            .header-nav-wrap .con span {
-                margin-left: 16px;
-                font-size: 20px;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                color: #000;
-            }
-            .header-nav-wrap .con img {
-                height: 40px;
-                margin-top: 6px
-            }
-
-            footer {
-                width: 100%;
-                margin-top: 60px;
-                background: #204ADC;
-            }
-
-            footer .footer {
-                height: 72px;
-                width: 100%;
-                text-align: center;
-                margin-top: 30px;
-                padding-top: 20px;
-            }
-
-            footer .footer p {
-                font: 12px/25px "\5FAE\8F6F\96C5\9ED1";
-                color: #fff;
-                width: 100%;
-                text-align: center;
-                line-height: 22px;
-                padding: 0;
-                margin: 0;
-            }
-
-            .footer .beian {
-                color: #fff;
-                text-decoration: none;
-            }
-
-            .main-container {
-                margin: 0 auto;
-                min-height: calc(100vh - 180px);
-            }
-
-            .result-title {
-                text-align: center;
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 6px;
-                display: none;
-            }
-
-            .table-result {
-                margin: 0 auto 20px;
-                font-size: 16px;
-                width: 95%;
-            }
-            .table-result tr td {
-                line-height: 24px;
-                padding: 10px;
-                border: none;
-                border-bottom:1px solid #fff;
-            }
-
-            .table-result tr td.label {
-                background: #e9eaeb;
-                font-weight: bold;
-            }
-
-            .error-msg {
-                text-align: center;
-                display: none;
-            }
-
-        </style>
-    </head>
-
-    <body>
-        <div class="header-nav-wrap">
-            <div class="con main-warp">
-                <img
-                    src="https://srt-read-online.3ren.cn/basebusiness/headimg/20200711/1594463173406z16UqUKCsw-17.png"
-                    alt="研修网"
-                />
-                <span class="title"></span>
-            </div>
-        </div>
-        <div id="main" class="main-container main-warp">
-            <h3 class="result-title">证书信息</h3>
-            <table id="resultTable" class="table-result" cellspacing="0" cellpadding="0">
-               
-			
-						<tr>
-							<td class="label" width="70" project-id="{{projectId}}">项目名称</td>
-							<td class="txt">临汾市2021年度中小学幼儿园教师全员培训项目</td>
-						</tr>
-				
-				
-						<tr>
-							<td class="label" width="70">姓名</td>
-							<td class="txt">刘怡廷</td>
-						</tr>
-				
-						<tr>
-							<td class="label" width="70">所在地区</td>
-							<td class="txt">山西省/临汾市/隰县</td>
-						</tr>
-					
-						<tr>
-							<td class="label" width="70">工作单位</td>
-							<td class="txt">隰县寨子乡中心学校</td>
-						</tr>
-				
-					
-				
-						<tr>
-							<td class="label" width="70">学时</td>
-							<td class="txt">成绩为100分</td>
-						</tr>
-					
-						<tr>
-							<td class="label" width="70">承训单位</td>
-							<td class="txt">中国教师研修网</td>
-						</tr>
-					
-              
-            </table>
-            <div class="error-msg">未查到证书信息</div>
-        </div>
-        <footer>
-            <div class="footer main-warp">
-                <p>
-                    <a
-                        target="_blank"
-                        href="http://www.beian.miit.gov.cn"
-                        class="beian"
-                    >
-                        京ICP备06018303号-7
-                    </a>
-                    <a
-                        target="_blank"
-                        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202007407"
-                        class="beian"
-                    >
-                        京公网安备 11010202007407号
-                    </a>
-                </p>
-                <p>Copyright ©2020 中国教师研修</p>
-            </div>
-        </footer>
-        <script>
-            function queryToJson(url = "") {
-                if (!url) {
-                    url = window.location.href;
-                }
-                var query = url.substr(url.lastIndexOf("?") + 1),
-                    result = {},
-                    kv,
-                    key,
-                    value,
-                    item;
-                query.split("&").forEach((param) => {
-                    if (param) {
-                        kv = param.split("=");
-                        key = kv[0];
-                        value = kv[1];
-                        item = result[key];
-                        if (typeof item === "undefined") {
-                            result[key] = value;
-                        } else if (
-                            Object.prototype.toString.call(item) ===
-                            "[object Array]"
-                        ) {
-                            item.push(value);
-                        } else {
-                            result[key] = [item, value];
-                        }
-                    }
-                });
-                return result;
-            }
-            $(function() {
-            	 $('.result-title').show();
-            
-            });
-        </script>
-    </body>
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.querySelector("html").setAttribute("data-theme", "dark");
+      }
+    </script>
+    <link rel="stylesheet" href="/assets/style.4fe5596c.css">
+    <link rel="modulepreload" href="/assets/app.c144602c.js"><link rel="modulepreload" href="/assets/404.html.0d30f0ca.js"><link rel="modulepreload" href="/assets/_plugin-vue_export-helper.cdc0426e.js"><link rel="modulepreload" href="/assets/404.html.83136f9a.js"><link rel="prefetch" href="/assets/index.html.921f0ea5.js"><link rel="prefetch" href="/assets/parse.html.69432b5b.js"><link rel="prefetch" href="/assets/index.html.41b3b794.js"><link rel="prefetch" href="/assets/phase0.html.c4a63c75.js"><link rel="prefetch" href="/assets/index.html.f5cdb421.js"><link rel="prefetch" href="/assets/index.html.4fc23911.js"><link rel="prefetch" href="/assets/architecture.html.d1f63440.js"><link rel="prefetch" href="/assets/cert.html.ccb7ee4a.js"><link rel="prefetch" href="/assets/features.html.8bc0b0db.js"><link rel="prefetch" href="/assets/index.html.9c24236c.js"><link rel="prefetch" href="/assets/techstack.html.2f63b91e.js"><link rel="prefetch" href="/assets/article1.html.61999a21.js"><link rel="prefetch" href="/assets/index.html.69a9705a.js"><link rel="prefetch" href="/assets/parse.html.dd5a0d93.js"><link rel="prefetch" href="/assets/index.html.52eb18ce.js"><link rel="prefetch" href="/assets/phase0.html.41aceeb8.js"><link rel="prefetch" href="/assets/index.html.289638f9.js"><link rel="prefetch" href="/assets/index.html.819199d1.js"><link rel="prefetch" href="/assets/architecture.html.4327a160.js"><link rel="prefetch" href="/assets/cert.html.0f261d5a.js"><link rel="prefetch" href="/assets/features.html.f2268df1.js"><link rel="prefetch" href="/assets/index.html.ae494961.js"><link rel="prefetch" href="/assets/techstack.html.b4da1ee7.js"><link rel="prefetch" href="/assets/article1.html.39022d82.js"><link rel="prefetch" href="/assets/markdown.esm.832a189d.js"><link rel="prefetch" href="/assets/reveal.esm.b96f05d8.js"><link rel="prefetch" href="/assets/photoswipe.esm.382b1873.js">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="skip-link sr-only">Skip to content</a><!--]--><div class="theme-container no-navbar no-sidebar has-toc"><!--[--><!----><!----><div class="toggle-sidebar-wrapper"><span class="arrow left"></span></div><aside class="sidebar"><!--[--><!----><!--]--><ul class="sidebar-links"><li><!--[--><a href="/" class="nav-link sidebar-link sidebar-page" aria-label="Remote SIM Provisioning"><span class="icon iconfont icon-home"></span>Remote SIM Provisioning<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><!--[--><section class="sidebar-group"><button class="sidebar-heading clickable"><span class="icon iconfont icon-discover"></span><span class="title">幻灯片演示</span><span class="arrow right"></span></button><!----></section><!--]--></li><li><!--[--><section class="sidebar-group"><button class="sidebar-heading clickable"><span class="icon iconfont icon-creative"></span><span class="title">系统介绍</span><span class="arrow right"></span></button><!----></section><!--]--></li><li><!--[--><section class="sidebar-group"><button class="sidebar-heading clickable"><span class="icon iconfont icon-creative"></span><span class="title">系统需求</span><span class="arrow right"></span></button><!----></section><!--]--></li><li><!--[--><section class="sidebar-group"><button class="sidebar-heading clickable"><span class="icon iconfont icon-creative"></span><span class="title">Profile数据解析</span><span class="arrow right"></span></button><!----></section><!--]--></li></ul><!--[--><!----><!--]--></aside><!--[--><main class="page not-found" id="main-content"><svg xmlns="http://www.w3.org/2000/svg" class="not-found-icon" viewbox="0 0 178 130"><defs><linearGradient id="b" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#e9e9e9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="c" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#dcdcdc"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="d" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#f1f1f1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="e" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#dedede"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="f" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#e8e8e8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="g" x1=".213" y1="1.265" x2=".846" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f5f5f5"/></linearGradient><linearGradient id="h" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#c5c5c5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="i" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#acacac"/><stop offset="1" stop-color="#f2f2f2" stop-opacity=".388"/></linearGradient><clipPath id="a"><path transform="translate(744 1111)" fill="none" d="M0 0h178v130H0z"/></clipPath></defs><g transform="translate(-744 -1111)" clip-path="url(#a)"><path d="M0 10.795 36.6 0v93.779L0 104.574z" transform="translate(772.466 1122.142)" fill="url(#b)"/><path d="M-8.492 10.642-26.361-.469v93.78l17.868 11.111z" transform="translate(780.958 1122.293)" fill="url(#c)"/><path d="M-8.5 5.55 28.106-5.3 10.228-16.437l-36.6 10.845z" transform="translate(780.963 1127.438)" fill="url(#d)"/><path d="M0 10.539 35.741 0v91.56L0 102.1z" transform="translate(870.158 1123.617)" fill="url(#d)"/><path d="M-8.913 10.38-26.361-.469v91.562l17.448 10.848z" transform="translate(879.071 1123.775)" fill="url(#e)"/><path d="m-8.918 5.032 35.741-10.59L9.366-16.437-26.375-5.848z" transform="translate(879.076 1129.175)" fill="url(#d)"/><path d="M0 9.137 30.839 0v79.381L0 88.519z" transform="translate(799.678 1151.579)" fill="url(#f)"/><path d="m-11.306 8.936-15.054-9.4v79.377l15.054 9.4z" transform="translate(810.985 1151.78)" fill="url(#c)"/><path d="M-11.313 2.087 19.526-7.05 4.464-16.437-26.375-7.3z" transform="translate(810.991 1158.63)" fill="url(#g)"/><path d="M178 53H0a51.361 51.361 0 0 1 10.453-20.952 74.532 74.532 0 0 1 19.742-16.811A103.3 103.3 0 0 1 57.089 4.058a127.515 127.515 0 0 1 63.823 0 103.3 103.3 0 0 1 26.894 11.179 74.532 74.532 0 0 1 19.741 16.811A51.363 51.363 0 0 1 178 53z" transform="translate(744 1187.549)" fill="url(#h)"/><path d="m814.529 1199.586-1.272 1.212h2.3l1.2-1.212zM816.725 1194.909l-1.272 1.212h2.3l1.263-1.212zM863.284 1199.585l-1.272 1.212h2.3l1.2-1.212zM865.519 1194.9l-1.272 1.212h2.3l1.263-1.212z" fill="#cbcbcb"/><path d="m799.527 1191.21 10.182-21.97h4.381l-9.931 21.719h14.876v3.941h-19.508zm13.081-9.493h4.152v17.859h-4.152zm20.728 18.151q-4.256 0-6.457-2.274a8.74 8.74 0 0 1-2.2-6.343v-13.791a8.708 8.708 0 0 1 2.21-6.353q2.212-2.264 6.447-2.264 4.256 0 6.457 2.253a8.726 8.726 0 0 1 2.2 6.363v13.792a8.708 8.708 0 0 1-2.21 6.349q-2.211 2.268-6.447 2.268zm0-4.048a4.29 4.29 0 0 0 3.328-1.178 4.862 4.862 0 0 0 1.074-3.39v-13.792a4.893 4.893 0 0 0-1.064-3.39 4.285 4.285 0 0 0-3.338-1.179 4.285 4.285 0 0 0-3.338 1.179 4.893 4.893 0 0 0-1.064 3.39v13.791a4.862 4.862 0 0 0 1.075 3.391 4.29 4.29 0 0 0 3.327 1.178zm14.928-4.61 10.181-21.97h4.381l-9.931 21.719h14.876v3.941h-19.507zm13.081-9.493h4.152v17.859h-4.152z" fill="#c6c6c6"/><path d="m798.306 1192.431 10.182-21.97h4.381l-9.931 21.719h14.876v3.941h-19.508zm13.081-9.493h4.152v17.859h-4.152zm20.728 18.151q-4.256 0-6.457-2.274a8.74 8.74 0 0 1-2.2-6.343v-13.791a8.708 8.708 0 0 1 2.21-6.353q2.212-2.264 6.447-2.264 4.256 0 6.457 2.253a8.726 8.726 0 0 1 2.2 6.363v13.792a8.708 8.708 0 0 1-2.21 6.349q-2.211 2.268-6.447 2.268zm0-4.048a4.29 4.29 0 0 0 3.328-1.178 4.862 4.862 0 0 0 1.074-3.39v-13.792a4.893 4.893 0 0 0-1.064-3.39 4.285 4.285 0 0 0-3.338-1.179 4.285 4.285 0 0 0-3.338 1.179 4.893 4.893 0 0 0-1.064 3.39v13.791a4.862 4.862 0 0 0 1.075 3.391 4.29 4.29 0 0 0 3.327 1.178zm14.928-4.61 10.181-21.97h4.381l-9.931 21.719h14.876v3.941h-19.507zm13.081-9.493h4.152v17.859h-4.152z" fill="#b2b2b2"/><path d="m-27.694-19.435 10.182 14.517h4.381l-9.931-14.352h14.876v-2.606h-19.508zm13.081 6.273h4.152v-11.8h-4.152zM6.115-25.156q-4.256 0-6.457 1.5a4.8 4.8 0 0 0-2.2 4.191v9.113a4.784 4.784 0 0 0 2.212 4.2 11.511 11.511 0 0 0 6.447 1.5q4.256 0 6.457-1.489a4.786 4.786 0 0 0 2.2-4.2v-9.113a4.784 4.784 0 0 0-2.212-4.2 11.511 11.511 0 0 0-6.447-1.502zm0 2.675a5.705 5.705 0 0 1 3.328.779 2.6 2.6 0 0 1 1.074 2.24v9.113a2.607 2.607 0 0 1-1.064 2.24 5.7 5.7 0 0 1-3.338.779 5.7 5.7 0 0 1-3.338-.779 2.607 2.607 0 0 1-1.064-2.24v-9.113A2.6 2.6 0 0 1 2.788-21.7a5.705 5.705 0 0 1 3.327-.782zm14.927 3.047L31.224-4.918h4.381l-9.931-14.351H40.55v-2.606H21.043zm13.081 6.273h4.152v-11.8h-4.151z" transform="translate(826 1226.245)" opacity=".32" fill="url(#i)"/><g fill="#e6e6e6"><path d="m858.428 1169.23-1.2 1.259h4.388l1.178-1.259zM802.944 1192.187l1.288-1.375h7.143v1.375zm8.415-9.25 1.273-1.234h4.15l-1.235 1.234zm-2.855-12.469 1.198-1.259h4.367l-1.178 1.259zM861.362 1181.678l-1.27 1.3h4.188l1.236-1.3zM865.519 1190.9l-1.27 1.3h2.3l1.162-1.3zM852.838 1190.791l-1.207 1.508h8.447v-1.508z"/></g></g></svg><blockquote>There’s nothing here.</blockquote><button class="action-button">Go back</button><button class="action-button">Take me home</button></main><!--]--><!----><!--]--></div><!--]--><!----><!--]--></div>
+    <script type="module" src="/assets/app.c144602c.js" defer></script>
+  </body>
 </html>
